@@ -29,14 +29,7 @@ module.exports = class {
             new data({ guild: this.client.config.guildID }).save()
           }
         })
-        const VoiceChannel = this.client.channels.cache.get(server.BotVoiceChannel);
-        joinVoiceChannel({
-          channelId: VoiceChannel.id,
-          guildId: VoiceChannel.guild.id,
-          adapterCreator: VoiceChannel.guild.voiceAdapterCreator,
-          selfDeaf: true
-        });
-
+        
         setInterval(() => {
           const can = Math.floor(Math.random() * (this.client.config.botStatus.length));
           this.client.user.setActivity(`${this.client.config.botStatus[can]}`, {
